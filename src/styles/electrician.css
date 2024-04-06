@@ -1,0 +1,46 @@
+/* Basic styling for the service provider */
+.service-provider {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+   
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-provider h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .service-provider p {
+    margin: 10px 0;
+    font-style: italic;
+  }
+  
+  .book-button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .book-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  
+  
+  .service-provider-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* background: url('../images/elect.jpg') no-repeat center center ;
+    background-size: cover; */
+  }
+  

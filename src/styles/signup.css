@@ -1,0 +1,41 @@
+.main1 {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; */
+}
+
+.login {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card-title {
+  color: #343a40;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+  width: 200px; /* Set fixed width for the buttons */
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}

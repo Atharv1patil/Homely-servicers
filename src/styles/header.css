@@ -1,0 +1,32 @@
+/* Add this CSS code to your project's stylesheet */
+
+/* Styling for the navigation bar */
+.navbar {
+    background-color: black; /* Dark background color */
+    padding: 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    .navbar-brand-color{
+      color: blue;
+    }
+   
+  }
+  
+  .navbar-dark .navbar-toggler-icon {
+    color: white;
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #ffc107; /* Change color on hover */
+  }
+  
+  
+  

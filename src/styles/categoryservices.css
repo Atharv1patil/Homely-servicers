@@ -1,0 +1,84 @@
+/* Apply background image to the entire body */
+body {
+  margin: 0;
+  padding: 0;
+  /* background-image: url('../category.jpg');  */
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+  
+}
+.category{
+   background-image: url('../images/category.jpg'); 
+   background-size: cover;
+   background-position: center;
+   color: white;
+}
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  /* color: white; */
+}
+
+/* Header styles */
+.post-head-title {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.post-head-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Category item styles */
+.post-item {
+  text-align: center;
+  padding: 10px;
+  flex-basis: 33.33%;
+}
+
+/* Image styles */
+.post-img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  border-radius: 70%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Category title styles */
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Category icon styles */
+.post-icon {
+  font-size: 24px;
+  color: #007bff;
+}
+
+/* Link styles */
+.category-link {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Link hover styles */
+.category-link:hover {
+  color: #007bff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .post-item {
+    flex-basis: 50%;
+  }
+}

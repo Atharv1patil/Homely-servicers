@@ -1,0 +1,83 @@
+/* styles/contact.css */
+
+/* Set the background image */
+body {
+  margin: 0;
+  padding: 0;
+  /* background: url('background-image.jpg') no-repeat center center fixed; */
+ 
+  font-family: Arial, sans-serif;
+  color: black;
+}
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/contact.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 1; /* Adjust opacity for background image */
+  z-index: -1;
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contact-content {
+  width: 80%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+}
+
+.contact-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group label {
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
