@@ -73,7 +73,7 @@ function Bookingapp() {
       status: Status,
     };
 
-    let url = "http://localhost:8080/api/bookingapp";
+    let url = "http://13.48.25.89:8080/api/bookingapp";
     await axios.post(url, newbooking);
     sweetalert("success", "You have registered successfully...", "success");
     window.location.href = "/login";
@@ -82,7 +82,7 @@ function Bookingapp() {
 //   const finduser = async () => {
 //     console.log("method call");
 //     const user = { email: Email };
-//     const response = await axios.post("http://localhost:8080/api/checkEmail", user);
+//     const response = await axios.post("http://13.48.25.89:8080/api/checkEmail", user);
 //     console.log(response.data);
 //     if (response.data === null || response.data === "") {
 //       addNewUser();

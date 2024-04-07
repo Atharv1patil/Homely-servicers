@@ -78,7 +78,7 @@ function Service_Provider_signup() {
       const userCredential = await createUserWithEmailAndPassword(auth, Email, Password);
       await sendEmailVerification(userCredential.user);
 
-      await axios.post("http://localhost:8080/api/registerserviceprovider", newUser);
+      await axios.post("http://13.48.25.89:8080/api/registerserviceprovider", newUser);
       sweetalert("success", "You have registered successfully. Please check your email for verification.", "success");
     } catch (error) {
       sweetalert("Error", error.message, "error");
@@ -268,7 +268,7 @@ export default Service_Provider_signup;
 //         specialization: Specialization,
 //       };
 
-//       await axios.post("http://localhost:8080/api/registerServiceProvider", newServiceProvider);
+//       await axios.post("http://13.48.25.89:8080/api/registerServiceProvider", newServiceProvider);
 //       sweetalert("success", "You have registered successfully. Please check your email for verification.", "success");
 //     } catch (error) {
 //       sweetalert("Error", error.message, "error");

@@ -12,7 +12,7 @@ const HomeCleaner = ({ specialization }) => {
 
     // const fetchServiceProviders = async () => {
     //     try {
-    //         const response = await axios.get(`http://localhost:8080/api/serviceprovider/bySpecialization?specialization=${specialization}`);
+    //         const response = await axios.get(`http://13.48.25.89:8080/api/serviceprovider/bySpecialization?specialization=${specialization}`);
     //         console.log(response);
     //         setServiceProviders(response.data);
     //     } catch (error) {
@@ -27,7 +27,7 @@ const HomeCleaner = ({ specialization }) => {
     
     const fetchServiceProviders = async (trimmedSpecialization) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/serviceprovider/bySpecialization?specialization=HomeCleaner`);
+            const response = await axios.get(`http://13.48.25.89:8080/api/serviceprovider/bySpecialization?specialization=HomeCleaner`);
             console.log(response);
             setServiceProviders(response.data);
         } catch (error) {

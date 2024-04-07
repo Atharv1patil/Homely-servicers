@@ -7,9 +7,9 @@ const ServiceProviderHeader = () => {
     <div className="m-0 p-0">
       <nav className="navbar navbar-expand-lg navbar-dark ">
   <a className="navbar-brand" href="/">{/*<img src={servis} alt="" />*/}<b>Homely</b></a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
   <div className="collapse navbar-collapse" id="navbarNavDropdown">
     <ul className="navbar-nav ml-auto text-uppercase">
       <li className="nav-item ">

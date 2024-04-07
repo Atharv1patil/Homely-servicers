@@ -11,7 +11,7 @@
 //     // Function to fetch bookings from backend
 //     const fetchBookings = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:8080/bookings/${userNameFromHeader}`);
+//         const response = await axios.get(`http://13.48.25.89:8080/bookings/${userNameFromHeader}`);
 //         // Filter out bookings where booking_status is not null
 //         const filteredBookings = response.data.filter(booking => booking.booking_status !== null);
 //         setBookings(filteredBookings);
@@ -58,7 +58,7 @@ function ViewUser() {
     const fetchBookings = async () => {
       try {
            let name_1 = userNameFromHeader.trim();
-        const response = await axios.get(`http://localhost:8080/bookings/${userNameFromHeader}`);
+        const response = await axios.get(`http://13.48.25.89:8080/bookings/${userNameFromHeader}`);
         console.log(response);
         console.log(userNameFromHeader);
         // Filter out bookings where booking_status is not null
@@ -67,7 +67,7 @@ function ViewUser() {
       } catch (error) {
         console.error('Error fetching bookings:', error);
       }
-      axios.get(`http://localhost:8080/bookings/${userNameFromHeader}`).then(
+      axios.get(`http://13.48.25.89:8080/bookings/${userNameFromHeader}`).then(
         (Response)=>
         {
           console.log(Response)

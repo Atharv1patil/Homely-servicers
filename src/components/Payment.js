@@ -1,17 +1,18 @@
 
-
 // import React, { useState } from 'react';
 // import '../styles/payment.css';
 // import sweetalert from "sweetalert";
 // import pay from '../images/payment.jpeg';
 // import axios from "axios";
 // import Designer from '../images/Designer.png';
+// import { useHistory } from 'react-router-dom';
 
 // function Payment({ cart }) {
 //     const [selectedPaymentMode, setSelectedPaymentMode] = useState('');
 //     const [paymentError, setPaymentError] = useState(null);
 //     const [cardInfo, setCardInfo] = useState({});
 //     const totalCost = sessionStorage.getItem("totalCost");
+//     const history = useHistory();
 
 //     const handlePaymentModeSelect = (mode) => {
 //         setSelectedPaymentMode(mode);
@@ -47,13 +48,6 @@
 //             // window.location.href = "/";
 //         }
 //     };
-
-//     //  const reteriver_data = async ()=>
-//     // {
-        
-//     // }
-    
-   
     
 //     const handleRazorpayPayment = async () => {
 //         const loadScript = (src) => {
@@ -79,13 +73,11 @@
 //                 return;
 //             }
 //             try {
-//                 const userResponse = await axios.get(`http://localhost:8080/api/email/${sessionStorage.getItem("name")}`);
+//                 const userResponse = await axios.get(`http://13.48.25.89:8080/api/email/${sessionStorage.getItem("name")}`);
 //                 const userEmail = userResponse.data;
-//                 console.log(userEmail);
         
 //                 const user = { email: userEmail };
-//                 const res = await axios.post("http://localhost:8080/api/getUserByEmail", user);
-//                 console.log(res.data); // Accessing the first element of the array
+//                 const res = await axios.post("http://13.48.25.89:8080/api/getUserByEmail", user);
 //                 const { name, mobile, email } = res.data;
         
 //                 const options = {
@@ -98,7 +90,7 @@
 //                     "handler": function (response){
 //                         alert(" payment id - "+response.razorpay_payment_id);
 //                         sweetalert("success", "Payment is done successfully...", "success");
-                        
+//                         history.push('/userhome'); // Redirect to UserHome
 //                     },
 //                     "prefill": {
 //                         "name": name, // Use the retrieved name
@@ -113,18 +105,13 @@
         
 //                 const paymentObject = new window.Razorpay(options);
 //                 paymentObject.open();
-//                 window.location.href("/userhome");
 //             } catch (error) {
 //                 console.log(error);
 //             }
 //         };
-        
-//         // reteriver_data();
     
 //         displayRazorpay();
 //     };
-//     console.log(sessionStorage.getItem("name"));
-
 
 //     const renderPaymentContent = () => {
 //         switch (selectedPaymentMode) {
@@ -234,7 +221,6 @@
 
 // export default Payment;
 
-
 import React, { useState } from 'react';
 import '../styles/payment.css';
 import sweetalert from "sweetalert";
@@ -279,127 +265,127 @@ function Payment({ cart }) {
             if (selectedPaymentMode === 'phonePay') {
                 paymentMessage = 'Payment successful via PhonePay.';
             }
-            alert(paymentMessage);
+            sweetalert("success", paymentMessage, "success");
             cart = [];
-            // window.location.href = "/";
+            history.push('/userhome'); // Redirect to UserHome
         }
     };
     
     const handleRazorpayPayment = async () => {
         const loadScript = (src) => {
-            return new Promise((resolve) => {
-                const script = document.createElement("script");
-                script.src = src;
-    
-                script.onload = () => {
-                    resolve(true);
-                };
-                script.onerror = () => {
-                    resolve(false);
-                };
-                document.head.appendChild(script);
-            });
-        };
-    
-        const displayRazorpay = async () => {
-            const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-        
-            if (!res) {
-                sweetalert("error", "You are offline...", "error");
-                return;
-            }
-            try {
-                const userResponse = await axios.get(`http://localhost:8080/api/email/${sessionStorage.getItem("name")}`);
-                const userEmail = userResponse.data;
-        
-                const user = { email: userEmail };
-                const res = await axios.post("http://localhost:8080/api/getUserByEmail", user);
-                const { name, mobile, email } = res.data;
-        
-                const options = {
-                    "key": "rzp_test_tsrsoRU1sBXN1P",
-                    "amount": totalCost*100, // Replace with the actual total cost in paisa
-                    "currency": "INR",
-                    "name": "Homely services",
-                    "description": "Service payment",
-                    "image": `${Designer}`,
-                    "handler": function (response){
-                        alert(" payment id - "+response.razorpay_payment_id);
-                        sweetalert("success", "Payment is done successfully...", "success");
-                        history.push('/userhome'); // Redirect to UserHome
-                    },
-                    "prefill": {
-                        "name": name, // Use the retrieved name
-                        "email": email, // Use the retrieved email
-                        "contact": mobile // Use the retrieved mobile number
-                    },
-                    "theme": {
-                        "color": "#3399cc"
-                    }
+                        return new Promise((resolve) => {
+                            const script = document.createElement("script");
+                            script.src = src;
+                
+                            script.onload = () => {
+                                resolve(true);
+                            };
+                            script.onerror = () => {
+                                resolve(false);
+                            };
+                            document.head.appendChild(script);
+                        });
+                    };
+                
+                    const displayRazorpay = async () => {
+                        const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
                     
-                };
-        
-                const paymentObject = new window.Razorpay(options);
-                paymentObject.open();
-            } catch (error) {
-                console.log(error);
-            }
-        };
-    
-        displayRazorpay();
+                        if (!res) {
+                            sweetalert("error", "You are offline...", "error");
+                            return;
+                        }
+                        try {
+                            const userResponse = await axios.get(`http://13.48.25.89:8080/api/email/${sessionStorage.getItem("name")}`);
+                            const userEmail = userResponse.data;
+                    
+                            const user = { email: userEmail };
+                            const res = await axios.post("http://13.48.25.89:8080/api/getUserByEmail", user);
+                            const { name, mobile, email } = res.data;
+                    
+                            const options = {
+                                "key": "rzp_test_tsrsoRU1sBXN1P",
+                                "amount": totalCost*100, // Replace with the actual total cost in paisa
+                                "currency": "INR",
+                                "name": "Homely services",
+                                "description": "Service payment",
+                                "image": `${Designer}`,
+                                "handler": function (response){
+                                    alert(" payment id - "+response.razorpay_payment_id);
+                                    sweetalert("success", "Payment is done successfully...", "success");
+                                    history.push('/userhome'); // Redirect to UserHome
+                                },
+                                "prefill": {
+                                    "name": name, // Use the retrieved name
+                                    "email": email, // Use the retrieved email
+                                    "contact": mobile // Use the retrieved mobile number
+                                },
+                                "theme": {
+                                    "color": "#3399cc"
+                                }
+                                
+                            };
+                    
+                            const paymentObject = new window.Razorpay(options);
+                            paymentObject.open();
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    };
+                
+                    displayRazorpay();
     };
 
     const renderPaymentContent = () => {
         switch (selectedPaymentMode) {
-            case 'creditCard':
-            case 'debitCard':
-                return (
-                    <div className="card-info">
-                        <label>Card Number:</label>
-                        <input
-                            type="text"
-                            name="cardNumber"
-                            value={cardInfo.cardNumber || ''}
-                            onChange={handleCardInputChange}
-                        />
-                        <label>Expiry Date:</label>
-                        <input
-                            type="text"
-                            name="expiryDate"
-                            value={cardInfo.expiryDate || ''}
-                            onChange={handleCardInputChange}
-                        />
-                        <label>CVV:</label>
-                        <input
-                            type="text"
-                            name="cvv"
-                            value={cardInfo.cvv || ''}
-                            onChange={handleCardInputChange}
-                        />
-                    </div>
-                );
-            case 'phonePay':
-                return (
-                    <div className="phonepay-qr">
-                        <p>Scan the QR code below to complete the payment with PhonePay.</p>
-                        <img
-                            src={pay} // Provide the correct path to your QR code image
-                            alt="PhonePay QR Code"
-                            width="300" // Set the width as needed
-                            height="200" // Set the height as needed
-                        />
-                    </div>
-                );
-            case 'razorpay':
-                return (
-                    <div className="razorpay-payment">
-                        <p>Click the button below to proceed with Razorpay payment.</p>
-                        <button onClick={handleRazorpayPayment}>Pay with Razorpay</button>
-                    </div>
-                );
-            default:
-                return null;
-        }
+                        case 'creditCard':
+                        case 'debitCard':
+                            return (
+                                <div className="card-info">
+                                    <label>Card Number:</label>
+                                    <input
+                                        type="text"
+                                        name="cardNumber"
+                                        value={cardInfo.cardNumber || ''}
+                                        onChange={handleCardInputChange}
+                                    />
+                                    <label>Expiry Date:</label>
+                                    <input
+                                        type="text"
+                                        name="expiryDate"
+                                        value={cardInfo.expiryDate || ''}
+                                        onChange={handleCardInputChange}
+                                    />
+                                    <label>CVV:</label>
+                                    <input
+                                        type="text"
+                                        name="cvv"
+                                        value={cardInfo.cvv || ''}
+                                        onChange={handleCardInputChange}
+                                    />
+                                </div>
+                            );
+                        case 'phonePay':
+                            return (
+                                <div className="phonepay-qr">
+                                    <p>Scan the QR code below to complete the payment with PhonePay.</p>
+                                    <img
+                                        src={pay} // Provide the correct path to your QR code image
+                                        alt="PhonePay QR Code"
+                                        width="300" // Set the width as needed
+                                        height="200" // Set the height as needed
+                                    />
+                                </div>
+                            );
+                        case 'razorpay':
+                            return (
+                                <div className="razorpay-payment">
+                                    <p>Click the button below to proceed with Razorpay payment.</p>
+                                    <button onClick={handleRazorpayPayment}>Pay with Razorpay</button>
+                                </div>
+                            );
+                        default:
+                            return null;
+                    }
     };
 
     return (
@@ -407,7 +393,7 @@ function Payment({ cart }) {
             <h2>Payment</h2>
             <p>Total Cost: Rs.{totalCost}</p>
             <div className="payment-modes">
-                <label>
+            <label>
                     <input
                         type="radio"
                         name="paymentMode"
@@ -447,10 +433,11 @@ function Payment({ cart }) {
                     />
                     Razorpay
                 </label>
+            
             </div>
             {renderPaymentContent()}
             {paymentError && <p className="payment-error">{paymentError}</p>}
-            <button onClick={handlePayNow}>Pay Now</button>
+            {selectedPaymentMode !== 'razorpay' && <button onClick={handlePayNow}>Pay Now</button>}
         </div>
     );
 }

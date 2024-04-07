@@ -16,10 +16,10 @@ function ViewUser() {
   }, []);
 
   const getAllUsers = async () => {
-    // const response = await axios.get("http://localhost:8080/api/getUser");
+    // const response = await axios.get("http://13.48.25.89:8080/api/getUser");
     const user = { roleId: 3 };
     const response = await axios.post(
-      "http://localhost:8080/api/getUserByRoleId",
+      "http://13.48.25.89:8080/api/getUserByRoleId",
       user
     );
     setUserList(response.data);
@@ -29,7 +29,7 @@ function ViewUser() {
   const myfun = async (userEmail) => {
     console.log(">>>>>" + userEmail);
     const user = { email: userEmail };
-    const res = await axios.post("http://localhost:8080/api/getUserByEmail", user);
+    const res = await axios.post("http://13.48.25.89:8080/api/getUserByEmail", user);
     console.log(res.data);
     if (res.data.status==="Active") {
       const user1 = {
@@ -43,7 +43,7 @@ function ViewUser() {
         status: "InActive",
       };
       console.log(user1);
-      const user2 = await axios.put("http://localhost:8080/api/updateUser", user1);
+      const user2 = await axios.put("http://13.48.25.89:8080/api/updateUser", user1);
       sweetalert("success", " User blocked Successsfully...", "success");
     } else {
       const user1 = {
@@ -56,7 +56,7 @@ function ViewUser() {
         roleId: res.data.roleId,
         status: "Active",
       };
-      const user2 = await axios.put("http://localhost:8080/api/updateUser", user1);
+      const user2 = await axios.put("http://13.48.25.89:8080/api/updateUser", user1);
     }
 
     sweetalert("success", "Status updated successfully...", "success");

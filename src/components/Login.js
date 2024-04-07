@@ -13,7 +13,7 @@ function Login() {
   // const finduser = async () => {
   //   const user = { email: Email, password: Password };
 
-  //   const response = await axios.post("http://localhost:8080/api/login", user);
+  //   const response = await axios.post("http://13.48.25.89:8080/api/login", user);
 
   //   console.log(response.data);
   //   if (response.data === null || response.data === "") {
@@ -45,7 +45,7 @@ function Login() {
   const finduser = async () => {
     const user = { email: Email, password: Password };
   
-    const response = await axios.post("http://localhost:8080/api/login", user);
+    const response = await axios.post("http://13.48.25.89:8080/api/login", user);
   
     console.log(response.data);
     if (response.data === null || response.data === "") {

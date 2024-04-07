@@ -11,7 +11,7 @@
 //     const user = { email, password };
 
 //     try {
-//       const response = await axios.post("http://localhost:8080/api/login", user);
+//       const response = await axios.post("http://13.48.25.89:8080/api/login", user);
       
 //       if (!response.data || response.data === "") {
 //         toast.error("Invalid credentials");
@@ -107,7 +107,7 @@ function Login1() {
     const serviceprovider = { email, password };
 
     try {
-      const response = await axios.post("http://localhost:8080/api/splogin", serviceprovider);
+      const response = await axios.post("http://13.48.25.89:8080/api/splogin", serviceprovider);
       
       if (!response.data || response.data === "") {
         toast.error("Invalid credentials");

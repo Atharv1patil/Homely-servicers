@@ -18,8 +18,8 @@ function Booking() {
 
   const getBookings = async () => {
     try {
-        const response = await axios.get("http://localhost:8080/getbooking");
-        const providerDataResponse = await axios.get(`http://localhost:8080/api/services/${sessionStorage.getItem("name")}`);
+        const response = await axios.get("http://13.48.25.89:8080/getbooking");
+        const providerDataResponse = await axios.get(`http://13.48.25.89:8080/api/services/${sessionStorage.getItem("name")}`);
         const providerData = providerDataResponse.data[0]; // Assuming the data is an array and we take the first element
         
         // Convert specialization based on specific conditions
@@ -64,12 +64,12 @@ const confirmBooking = async (bookingId, userName, service, dateTime, problemDes
     }
   
     try {
-      await axios.put(`http://localhost:8080/${bookingId}/status?booking_status=${sessionStorage.getItem("name")}`);
+      await axios.put(`http://13.48.25.89:8080/${bookingId}/status?booking_status=${sessionStorage.getItem("name")}`);
         
-      const userResponse = await axios.get(`http://localhost:8080/api/email/${providerName}`);
+      const userResponse = await axios.get(`http://13.48.25.89:8080/api/email/${providerName}`);
       const userEmail = userResponse.data;
   
-      const providerDataResponse = await axios.get(`http://localhost:8080/api/services/${sessionStorage.getItem("name")}`);
+      const providerDataResponse = await axios.get(`http://13.48.25.89:8080/api/services/${sessionStorage.getItem("name")}`);
       const providerData = providerDataResponse.data[0]; // Accessing the first element of the array
       const { name, mobile,email } = providerData;
 

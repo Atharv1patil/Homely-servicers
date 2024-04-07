@@ -12,7 +12,7 @@ const GeneralPhysician = () => {
 
     const fetchServiceProviders = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/serviceprovider`);
+            const response = await axios.get(`http://13.48.25.89:8080/api/serviceprovider`);
             setServiceProviders(response.data);
         } catch (error) {
             console.error('Error fetching services', error);

@@ -89,7 +89,7 @@ function UserSignUp() {
       const userCredential = await createUserWithEmailAndPassword(auth, Email, Pass);
       await sendEmailVerification(userCredential.user);
 
-      await axios.post("http://localhost:8080/api/registerUser", newuser);
+      await axios.post("http://13.48.25.89:8080/api/registerUser", newuser);
       // toast.success(" Email is send Success plz verify it ");
       sweetalert("success", "You have registered successfully. Please check your email for verification.", "success");
       
@@ -102,7 +102,7 @@ function UserSignUp() {
   const finduser = async () => {
     console.log("method called find user()");
     const user = { email: Email };
-    const response = await axios.post("http://localhost:8080/api/checkEmail", user);
+    const response = await axios.post("http://13.48.25.89:8080/api/checkEmail", user);
     console.log(response.data);
     if (response.data === null || response.data === "") {
       addNewUser();
